@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boid Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <button class="toggle-controls">
+        <svg class="toggle-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97L21.54,14.63C21.73,14.78 21.78,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.03 19.05,18.95L16.56,17.94C16.04,18.34 15.5,18.67 14.87,18.91L14.5,21.58C14.46,21.82 14.25,22 14,22H10C9.75,22 9.54,21.82 9.5,21.58L9.13,18.91C8.5,18.67 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.09L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.09C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.78,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,12.97Z" />
+        </svg>
+    </button>
+    
+    <div class="controls">
+        <div class="header">
+            <h2>Boid Simulation</h2>
+        </div>
+        
+        <div class="collapsible-section">
+            <div class="collapsible-header" id="flockingHeader">
+                <h3>Flocking Behavior</h3>
+                <svg class="collapsible-icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+            </div>
+            <div class="collapsible-content" id="flockingContent">
+                <div class="slider-container">
+                    <label for="separation">Separation <span id="separationValue" class="value-display">2.0</span></label>
+                    <input type="range" id="separation" min="0" max="5" step="0.1" value="2.0">
+                </div>
+                
+                <div class="slider-container">
+                    <label for="alignment">Alignment <span id="alignmentValue" class="value-display">1.0</span></label>
+                    <input type="range" id="alignment" min="0" max="5" step="0.1" value="1.0">
+                </div>
+                
+                <div class="slider-container">
+                    <label for="cohesion">Cohesion <span id="cohesionValue" class="value-display">1.0</span></label>
+                    <input type="range" id="cohesion" min="0" max="5" step="0.1" value="1.0">
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <div class="slider-container">
+                <label for="speed">Speed <span id="speedValue" class="value-display">4.0</span></label>
+                <input type="range" id="speed" min="1" max="10" step="0.1" value="4.0">
+            </div>
+            
+            <div class="slider-container">
+                <label for="trailLength">Trail Length <span id="trailLengthValue" class="value-display">10</span></label>
+                <input type="range" id="trailLength" min="0" max="30" step="1" value="10">
+            </div>
+            
+            <div class="slider-container">
+                <label for="numBoids">Number of Boids <span id="numBoidsValue" class="value-display">150</span></label>
+                <input type="range" id="numBoids" min="10" max="500" step="10" value="150">
+            </div>
+            
+            <div class="slider-container">
+                <label for="theme">Color Theme</label>
+                <select id="theme">
+                    <option value="forest">Forest</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="sunset">Sunset</option>
+                    <option value="neon">Neon</option>
+                    <option value="black">Black</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
